@@ -7,13 +7,16 @@ PORT = 5000
 
 connected = set()
 
-#Some feedback on the console
-print("A client just connected")
+#Current date Server listening and PORT 
+print(datetime.datetime.utcnow().isoformat() + " Server is listening on port " + str(PORT))
+
 
 
 async def echo(websocket, path):
   #Register
   connected.add(websocket)
+  #Some feedback on the console
+  print("A client just connected")
 
   #Attach some behaviour to the incoming socket
   try:
